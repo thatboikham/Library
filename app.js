@@ -6,8 +6,8 @@ function book(title, author, pages, readOrUnread){
     this.pages = pages;
     this.readOrUnread = readOrUnread;
 }
-const myheart = new book("thepearl", "john keypegon", "3466 pages", "read");
-const myFavourite = new book("headhead", "happy brirday", "64545 pages", "unread");
+const myheart = new Book("thepearl", "john keypegon", "3466 pages", "read");
+const myFavourite = new Book("headhead", "happy brirday", "64545 pages", "unread");
 
 function bookToLibrary(){
     myLibrary.push(myheart)
