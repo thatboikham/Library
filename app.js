@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-function book(title, author, pages, readOrUnread){
+function Book(title, author, pages, readOrUnread){
     this.title = title;
     this.author = author;
     this.pages = pages;
