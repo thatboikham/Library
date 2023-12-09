@@ -1,0 +1,139 @@
+:root{
+    --darkgreen: #021e34;
+    --white: #ffffff;
+    --blue: #1992d4;
+    --greypupple: #e6e6e6;
+    --greenbtn: #008000;
+
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.layout{
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+.header{
+    justify-content: center;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.right,
+.left{
+    margin: 0px 20px 0px;
+}
+.uppertop{
+    display: flex;
+}
+.logo{
+    width: fit-content;
+    text-align: center;
+    display: flex;
+    border: 2px solid black;
+}
+img{
+    width: 125px;
+}
+.text{
+    margin: 10px 0px;
+    text-align: center;
+}
+.side-bar{
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 1.2rem;
+}
+.btn{
+    display: flex;
+    gap: 10px;
+    margin: 1.6em;
+    text-transform: capitalize;
+}
+.top{
+    margin-bottom: 50px;
+}
+.main > div{
+    display: none;
+}
+.active{
+    display: block;
+}
+.main{
+    background-color: var(--greypupple);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 16px;
+}
+form{
+    font-size: 1.3em;
+}
+
+input{
+    height: 30px;
+}
+#addbookcontent input[type = "text"]{
+    width: 30em;
+    height: 30px;
+}
+#addbookcontent{
+    display: block;
+}
+
+.inner{
+    margin: 20px 0px 20px 0px;
+}
+select{
+    font-size: 18px;
+}
+button{
+    padding: 0.866em;
+    float: right;
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+}
+.card p:first-child{
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+.card button{
+    font-size: 1em;
+    background-color: red;
+    align-self: flex-end;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    width: 280px;
+    height: auto;
+    line-height: 1.5;
+    padding: 5px 15px;
+    border-radius: 8px;
+}
+
+.card .read_unread {
+    font-size: 1em;
+    background-color: green;
+    align-self: flex-start; /* Align the button to the start of the container */
+}
+.btndiv{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px;
+}

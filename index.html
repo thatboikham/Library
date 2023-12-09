@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <script src="https://kit.fontawesome.com/d45faf114c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Ops+One&family=Libre+Baskerville:wght@700&family=Pacifico&family=Poppins&family=Public+Sans:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-dTfzbsO5a21ET9tiIaE3QaP4Y6vKpPErBxzpoZRne8bfsMQwRtGx1vNK7hO4+5t7iAa1k1Ua0IyIym2Gq0F8gQ==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="layout">
+        <div class="side-bar">
+            <div class="top">
+                <div class="btn" onclick="showmaincontent('addbookcontent')" ><i class="fa fa-book" aria-hidden="true"></i> Add Book</div>
+                <div class="btn"><i class="fa fa-flag" aria-hidden="true"></i>Book Report</div>
+                <div class="btn"><i class="fa-solid fa-code-pull-request"></i>Book Request</div>
+                <div class="btn"  onclick="showmaincontent('availablebooks')"><i class="fa-solid fa-eye"></i>Available Books</div>
+            </div>
+            <div class="btn"><i class="fa-solid fa-user"></i>Add Student</div>
+            <div class="btn"><i class="fa fa-flag" aria-hidden="true"></i>Studdent Report</div>
+            <div class="btn"><i class="fa-solid fa-arrow-right"></i>Issue Book</div>
+            <div class="btn"><i class="fa-solid fa-exclamation"></i>Issue Report</div>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="left">NexGen Learning Lounge</div>
+                <div class="logo"><img src="image/3.png" alt=""></div>
+                <div class="right">Digital Library System</div>
+            </div>
+            <div class="main" id="mainContent">
+                <div id="addbookcontent" class="content">
+                    <form action="#" method="get" id="form">
+                        <h1>Add new book</h1>
+                        <div class="inner">
+                            <div class="upper"><label for="title">Book Title</label></div>
+                            <input type="text" name="title" id="title" required>
+                        </div>
+                        <div class="inner">
+                            <div class="upper"><label for="author">Author</label></div>
+                            <input type="text" name="author" id="author"required>
+                        </div>
+                        <div class="inner">
+                            <div class="upper"><label for="pages">Book Pages</label></div>
+                            <input type="number" name="pages" id="pages"required>
+                        </div>
+                        <label for="read">Have you read the book</label>
+                        <div class="options">
+                            <select name="read/unread" id="read/unread">
+                                <option value="read">Read</option>
+                                <option value="unread">Unread</option>
+                            </select>
+                        </div>
+                        <div class="div"><button type="submit">Add Book</button></div>
+                    </form>
+                </div>
+                <div id="bookreportcontent" class="content">
+                    <div class="intro">
+                        <h1>introduction</h1>
+                        <p>All good pieces of academic writing should </p>
+                        <textarea name="introduction" id="introduction" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="summary">
+                        <h1>Summary or argument</h1>
+                        <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="about-author">
+                        <h1>About the author</h1>
+                        <textarea name="about-author" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="strength">
+                        <h1>Strength</h1>
+                        <textarea name="strength" id="strength" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="weakness">
+                        <h1>weakness</h1>
+                        <textarea name="weakness" id="weakness" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="conclusion">
+                        <h1>conclusion</h1>
+                        <textarea name="conclusion" id="conclusion" cols="30" rows="10"></textarea>
+                    </div>
+                    <button>Submit</button>
+                </div>
+                <div id="availablebooks" class="content">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
