@@ -137,3 +137,7 @@ button{
     justify-content: space-between;
     margin: 5px 0px;
 }
+.message{
+    font-size: 2em;
+    margin: 20px 0px;
+}
