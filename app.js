@@ -3,10 +3,10 @@ const myform = document.getElementById('form');
 const availableBooks = document.getElementById('availablebooks');
 const box = document.createElement('div')
 const messageDiv = document.createElement('div')
+availableBooks.appendChild(messageDiv);
 messageDiv.classList.add('message')
 messageDiv.innerHTML = "NO BOOKS AVILLABLE PLZ ADD BOOK TO DISPLAY THEM HERE"
 availableBooks.appendChild(box)
-availableBooks.appendChild(messageDiv)
 const submitbtn = document.querySelector(`form [type = "submit"]`);
 var selectElement = document.getElementById('read/unread');
 
@@ -18,7 +18,6 @@ function Book(title, author, pages, readOrUnread){
 }
 
 myform.addEventListener("submit", (e) => {
-    messageDiv.remove();
     e.preventDefault();
     const formdata = new FormData(myform)
 
@@ -30,7 +29,9 @@ myform.addEventListener("submit", (e) => {
     createBookcard(title, author, pages, readOrUnread);
     bookToLibrary(title, author, pages, readOrUnread);
 
-    console.log(myLibrary)
+    
+    console.log(myLibrary.length)
+    appendMessageDiv();
 });
 
 function bookToLibrary(title, author, pages, readOrUnread){
@@ -99,6 +100,12 @@ function deleteBook(card, delete_btn) {
         card.remove();
     });
 }
+
+function appendMessageDiv(){
+    if(myLibrary.length > 0){
+        availableBooks.removeChild(messageDiv)
+    }
+};
 
 
 
