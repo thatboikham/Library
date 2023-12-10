@@ -23,14 +23,15 @@ myform.addEventListener("submit", (e) => {
     const pages = formdata.get("pages");
     const readOrUnread = selectElement.value;
 
-    bookToLibrary(title, author, pages, readOrUnread);
     createBookcard(title, author, pages, readOrUnread);
+    bookToLibrary(title, author, pages, readOrUnread);
+
+    console.log(myLibrary)
 });
 
 function bookToLibrary(title, author, pages, readOrUnread){
     const newBook = new Book(title, author, pages, readOrUnread);
     myLibrary.push(newBook);
-    console.log(myLibrary[0])
 }
 
 //create cards for the books
@@ -86,14 +87,14 @@ function showmaincontent(contentID){
     selectedContent.style.display = 'block';
 };
 
-function deleteBook(card, delete_btn){
-    const alldelets = Array.from(document.querySelectorAll(".delete"))
-    delete_btn.addEventListener("click", function(){
-        let index = card.getAttribute("data-number");
-        myLibrary.splice(index,1)
-    })
+function deleteBook(card, delete_btn) {
+    delete_btn.addEventListener("click", function() {
+        let index = Array.from(document.querySelectorAll(".card")).indexOf(card);
+        myLibrary.splice(index, 1);
+        console.log(myLibrary);
+        card.remove();
+    });
 }
-
 
 
 
