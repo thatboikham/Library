@@ -3,9 +3,9 @@ const myform = document.getElementById("form");
 const availableBooks = document.getElementById("availablebooks");
 const box = document.createElement("div");
 const messageDiv = document.createElement("div");
-availableBooks.appendChild(messageDiv);
-messageDiv.classList.add("message");
-messageDiv.innerHTML = "NO BOOKS AVILLABLE PLZ ADD BOOK TO DISPLAY THEM HERE";
+// availableBooks.appendChild(messageDiv);
+// messageDiv.classList.add("message");
+// messageDiv.innerHTML = "NO BOOKS AVILLABLE PLZ ADD BOOK TO DISPLAY THEM HERE";
 availableBooks.appendChild(box);
 const submitbtn = document.querySelector(`form [type = "submit"]`);
 var selectElement = document.getElementById("read/unread");
@@ -30,8 +30,7 @@ myform.addEventListener("submit", (e) => {
   createBookcard(title, author, pages, readOrUnread);
   bookToLibrary(title, author, pages, readOrUnread);
 
-  console.log(myLibrary.length);
-  appendMessageDiv();
+  // appendMessageDiv();
 });
 
 function bookToLibrary(title, author, pages, readOrUnread) {
@@ -61,7 +60,6 @@ function createBookcard(title, author, pages, readOrUnread) {
   box.appendChild(card);
 
   title_p.textContent = `Book Title: ${title}`;
-  console.log(title);
   author_p.textContent = `Author: ${author}`;
   pages_p.textContent = `No of pages:${pages}`;
   read_btn.innerHTML = `${readOrUnread}`;
@@ -87,7 +85,6 @@ function showmaincontent(contentID) {
     allContentElement[i].style.display = "none";
   }
   selectedContent = document.getElementById(contentID);
-  console.log(selectedContent);
   selectedContent.style.display = "block";
 }
 
@@ -95,17 +92,16 @@ function deleteBook(card, delete_btn) {
   delete_btn.addEventListener("click", function () {
     let index = Array.from(document.querySelectorAll(".card")).indexOf(card);
     myLibrary.splice(index, 1);
-    console.log(myLibrary);
     card.remove();
     // appendMessageDiv();
   });
 }
 
-function appendMessageDiv() {
-  if (myLibrary.length > 0) {
-    availableBooks.removeChild(messageDiv);
-  }
-}
+// function appendMessageDiv() {
+//   if (myLibrary.length > 0) {
+//     availableBooks.removeChild(messageDiv);
+//   }
+// }
 
 // use execute this function in the form not when creating a div
 function changeStatus(read_btn, card) {
@@ -120,7 +116,6 @@ function changeStatus(read_btn, card) {
       read_btn.innerHTML = `${myLibrary[index].readOrUnread}`;
       read_btn.style.backgroundColor = "green";
     }
-
     read_btn.innerHTML = myLibrary[index].readOrUnread;
     selectElement.value = myLibrary[index].readOrUnread; // Toggle the selected value
   });
