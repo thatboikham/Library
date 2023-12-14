@@ -2,7 +2,7 @@ const myLibrary = [];
 const myform = document.getElementById("form");
 const availableBooks = document.getElementById("availablebooks");
 const box = document.createElement("div");
-const messageDiv = document.createElement("div");
+// const messageDiv = document.createElement("div");
 // availableBooks.appendChild(messageDiv);
 // messageDiv.classList.add("message");
 // messageDiv.innerHTML = "NO BOOKS AVILLABLE PLZ ADD BOOK TO DISPLAY THEM HERE";
@@ -31,6 +31,7 @@ myform.addEventListener("submit", (e) => {
   bookToLibrary(title, author, pages, readOrUnread);
 
   // appendMessageDiv();
+  myform.reset();
 });
 
 function bookToLibrary(title, author, pages, readOrUnread) {
