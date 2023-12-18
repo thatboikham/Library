@@ -60,7 +60,7 @@ function createBookcard(title, author, pages, readOrUnread) {
   btndiv.classList.add("btndiv");
   box.appendChild(card);
 
-  title_p.textContent = `Book Title: ${title}`;
+  title_p.textContent = `${capitalize(title)}`;
   author_p.textContent = `Author: ${author}`;
   pages_p.textContent = `No of pages:${pages}`;
   read_btn.innerHTML = `${readOrUnread}`;
@@ -115,7 +115,7 @@ function changeStatus(read_btn, card) {
     } else if (selectElement.value == selectElement.options[1].value) {
       myLibrary[index].readOrUnread = selectElement.options[0].value;
       read_btn.innerHTML = `${myLibrary[index].readOrUnread}`;
-      read_btn.style.backgroundColor = "green";
+      read_btn.style.backgroundColor = " #00cc66";
     }
     read_btn.innerHTML = myLibrary[index].readOrUnread;
     selectElement.value = myLibrary[index].readOrUnread; // Toggle the selected value
@@ -124,8 +124,11 @@ function changeStatus(read_btn, card) {
 
 function changeColors(read_btn) {
   if (selectElement.value == selectElement.options[0].value) {
-    read_btn.style.backgroundColor = "green";
+    read_btn.style.backgroundColor = " #00cc66";
   } else if (selectElement.value == selectElement.options[1].value) {
     read_btn.style.backgroundColor = "grey";
   }
+}
+function capitalize(word) {
+  return word.toUpperCase();
 }
