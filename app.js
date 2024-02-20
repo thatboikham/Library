@@ -2,20 +2,20 @@ const myLibrary = [];
 const myform = document.getElementById("form");
 const availableBooks = document.getElementById("availablebooks");
 const box = document.createElement("div");
-// const messageDiv = document.createElement("div");
-// availableBooks.appendChild(messageDiv);
-// messageDiv.classList.add("message");
-// messageDiv.innerHTML = "NO BOOKS AVILLABLE PLZ ADD BOOK TO DISPLAY THEM HERE";
+
+
 availableBooks.appendChild(box);
 const submitbtn = document.querySelector(`form [type = "submit"]`);
 var selectElement = document.getElementById("read/unread");
 
-function Book(title, author, pages, readOrUnread) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readOrUnread = readOrUnread;
-}
+class Book {
+      constructor(title, author, pages, readOrUnread){
+        this.title = title,
+        this.author = author,
+        this.pages = pages,
+        this.readOrUnread = readOrUnread;
+      }
+};
 
 myform.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -30,13 +30,13 @@ myform.addEventListener("submit", (e) => {
   createBookcard(title, author, pages, readOrUnread);
   bookToLibrary(title, author, pages, readOrUnread);
 
-  // appendMessageDiv();
   myform.reset();
 });
 
 function bookToLibrary(title, author, pages, readOrUnread) {
   const newBook = new Book(title, author, pages, readOrUnread);
   myLibrary.push(newBook);
+  console.log(myLibrary)
 }
 
 //create cards for the books
@@ -94,17 +94,9 @@ function deleteBook(card, delete_btn) {
     let index = Array.from(document.querySelectorAll(".card")).indexOf(card);
     myLibrary.splice(index, 1);
     card.remove();
-    // appendMessageDiv();
   });
 }
 
-// function appendMessageDiv() {
-//   if (myLibrary.length > 0) {
-//     availableBooks.removeChild(messageDiv);
-//   }
-// }
-
-// use execute this function in the form not when creating a div
 function changeStatus(read_btn, card) {
   read_btn.addEventListener("click", function () {
     let index = Array.from(document.querySelectorAll(".card")).indexOf(card);
@@ -118,7 +110,7 @@ function changeStatus(read_btn, card) {
       read_btn.style.backgroundColor = " #00cc66";
     }
     read_btn.innerHTML = myLibrary[index].readOrUnread;
-    selectElement.value = myLibrary[index].readOrUnread; // Toggle the selected value
+    selectElement.value = myLibrary[index].readOrUnread;
   });
 }
 
