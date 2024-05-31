@@ -2,6 +2,8 @@ const myLibrary = [];
 const myform = document.getElementById("form");
 const availableBooks = document.getElementById("availablebooks");
 const box = document.createElement("div");
+const errorDIv = document.querySelector('.error');
+const inputDiv = document.querySelectorAll('.input');
 // const messageDiv = document.createElement("div");
 // availableBooks.appendChild(messageDiv);
 // messageDiv.classList.add("message");
@@ -15,7 +17,22 @@ function Book(title, author, pages, readOrUnread) {
   this.author = author;
   this.pages = pages;
   this.readOrUnread = readOrUnread;
-}
+};
+
+myform.addEventListener("input", () => {
+  let formHasError = false;
+
+  inputDiv.forEach((input) => {
+    if (!input.validity.valid) {
+      formHasError = showError();
+    }
+  });
+
+  if (!formHasError) {
+    errorDIv.textContent = "";
+  }
+});
+
 myform.addEventListener("submit", (e) => {
   e.preventDefault();
   const formdata = new FormData(myform);
@@ -48,7 +65,7 @@ function createBookcard(title, author, pages, readOrUnread) {
   const pages_p = document.createElement("p");
   const read_btn = document.createElement("button");
   const delete_btn = document.createElement("button");
-
+  
   num++;
   card.setAttribute("data-number", num);
 
@@ -132,20 +149,31 @@ function capitalize(word) {
   return word.toUpperCase();
 }
 function showError(){
-  const errorDIv = document.querySelector('.error');
-  if(myform.validity.typeMismactch){
-    errorDIv.textContent = "please follow the placeholder partern"
-  }
-  else if(myform.validity.rangeUnderFlow){
-    errorDIv.textContent = "pages should be equal or greater than 50"
-  }
-  else if(myform.validity.rangeOverFlow){
-    errorDIv.textContent = "pages should be equal or less than 500"
-  }
-  else if(myform.validity.tooShort){
-    errorDIv.textContent = "the number of characters above is too short to be a name"
-  }
-  else if(myform.validity.tooLong){
-    errorDIv.textContent = "the number of characters above is too Long to be a name"
-  }
+  let hasError = false;
+  inputDiv.forEach((input) => {
+    const check = input.validity;
+
+    if(check.typeMismatch){
+      errorDIv.textContent = "please follow the placeholder partern";
+      hasError = true
+    }
+    else if(check.rangeUnderflow){
+      errorDIv.textContent = "pages should be equal or greater than 50";
+      hasError = true
+    }
+    else if(check.rangeOverflow){
+      errorDIv.textContent = "pages should be equal or less than 500"
+      hasError = true
+    }
+    else if(check.tooShort){
+      errorDIv.textContent = "the number of characters above is too short to be a name"
+      hasError = true
+    }
+    else if(check.tooLong){
+      errorDIv.textContent = "the number of characters above is too Long to be a name"
+      hasError = true
+    }
+  
+  })
+  return hasError;
 }
