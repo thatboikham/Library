@@ -16,7 +16,6 @@ function Book(title, author, pages, readOrUnread) {
   this.pages = pages;
   this.readOrUnread = readOrUnread;
 }
-
 myform.addEventListener("submit", (e) => {
   e.preventDefault();
   const formdata = new FormData(myform);
@@ -131,4 +130,22 @@ function changeColors(read_btn) {
 }
 function capitalize(word) {
   return word.toUpperCase();
+}
+function showError(){
+  const errorDIv = document.querySelector('.error');
+  if(myform.validity.typeMismactch){
+    errorDIv.textContent = "please follow the placeholder partern"
+  }
+  else if(myform.validity.rangeUnderFlow){
+    errorDIv.textContent = "pages should be equal or greater than 50"
+  }
+  else if(myform.validity.rangeOverFlow){
+    errorDIv.textContent = "pages should be equal or less than 500"
+  }
+  else if(myform.validity.tooShort){
+    errorDIv.textContent = "the number of characters above is too short to be a name"
+  }
+  else if(myform.validity.tooLong){
+    errorDIv.textContent = "the number of characters above is too Long to be a name"
+  }
 }
